@@ -28,8 +28,8 @@ dns:
     - 8.8.8.8
     - 8.8.4.4
 proxies:
-  - name: r443:vmess-usa-virginia-2025-02-05
-    server: 104.22.24.131-dono21.my.id
+  - name: dono21.my.id
+    server: 104.22.24.131
     port: 443
     type: vmess
     uuid: 75230fb0-dd9c-11ef-b235-205c6d5f5d78
@@ -37,15 +37,15 @@ proxies:
     cipher: auto
     tls: true
     skip-cert-verify: true
-    servername: us-23.hihu.net.dono21.my.id
+    servername: us-23.hihu.net
     network: ws
     ws-opts:
       path: /j4p9tla0
       headers:
-        Host: us-23.hihu.net.dono21.my.id
+        Host: us-23.hihu.net
     udp: true
 proxy-groups:
-  - name: R443:VMESS-USA-VIRGINIA-2025-02-05
+  - name: dono21.my.id
     type: select
     proxies:
       - r443:vmess-usa-virginia-2025-02-05
