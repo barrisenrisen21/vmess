@@ -1,0 +1,54 @@
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+ipv6: false
+mode: rule
+log-level: silent
+allow-lan: true
+external-controller: 0.0.0.0:9090
+secret: ''
+bind-address: '*'
+unified-delay: true
+profile:
+  store-selected: true
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  listen: 127.0.0.1:7874
+  nameserver:
+    - 1.1.1.1
+    - 1.0.0.1
+  fallback:
+    - https://cloudflare-dns.com/dns-query
+    - https://dns.google/dns-query
+  default-nameserver:
+    - 8.8.8.8
+    - 8.8.4.4
+proxies:
+  - name: r443:vmess-usa-virginia-2025-02-05
+    server: 104.22.24.131-dono21.my.id
+    port: 443
+    type: vmess
+    uuid: 75230fb0-dd9c-11ef-b235-205c6d5f5d78
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: us-23.hihu.net.dono21.my.id
+    network: ws
+    ws-opts:
+      path: /j4p9tla0
+      headers:
+        Host: us-23.hihu.net.dono21.my.id
+    udp: true
+proxy-groups:
+  - name: R443:VMESS-USA-VIRGINIA-2025-02-05
+    type: select
+    proxies:
+      - r443:vmess-usa-virginia-2025-02-05
+      - DIRECT
+rules:
+  - MATCH,R443:VMESS-USA-VIRGINIA-2025-02-05
